@@ -1,0 +1,54 @@
+{
+    "name": "@lumeweb/kernel-handshake-node",
+    "types": "module",
+    "author": {
+        "name": "Hammer Technologies LLC",
+        "email": "contact@lumeweb.com"
+    },
+    "scripts": {
+        "test": "jest",
+        "format": "prettier -w src",
+        "build-script": "tsc --project tsconfig.build.json && mv dist-build/build.js dist-build/build.mjs",
+        "compile": "npm run build-script && tsc && rollup -c rollup.config.js",
+        "build": "npm run compile && node ./dist-build/build.mjs dev"
+    },
+    "type": "module",
+    "dependencies": {
+        "@lumeweb/hypercore-proxy-handshake": "git+https://git.lumeweb.com/LumeWeb/hypercore-proxy-handshake.git",
+        "@lumeweb/kernel-swarm-client": "link:/home/derrick/Projects/lume/kernel/kernel-swarm-client",
+        "libkmodule": "^0.2.53"
+    },
+    "devDependencies": {
+        "@rollup/plugin-alias": "^4.0.3",
+        "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-inject": "^5.0.3",
+        "@rollup/plugin-json": "^6.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.1",
+        "@rollup/plugin-typescript": "^11.0.0",
+        "@screamingvoid/sodium-universal": "^0.1.1",
+        "@scure/bip39": "^1.1.1",
+        "@skynetlabs/skynet-nodejs": "^2.9.0",
+        "@types/node": "^18.14.0",
+        "@types/read": "^0.0.29",
+        "@types/streamx": "^2.9.1",
+        "cli-progress": "^3.11.2",
+        "esbuild": "^0.17.8",
+        "eventemitter3": "^5.0.0",
+        "node-stdlib-browser": "^1.2.0",
+        "os-browserify": "^0.3.0",
+        "path-browserify": "^1.0.1",
+        "prettier": "^2.8.4",
+        "read": "^2.0.0",
+        "rollup": "^3.17.0",
+        "rollup-plugin-polyfill": "^4.0.0",
+        "rollup-plugin-polyfill-inject": "^1.0.4",
+        "rollup-plugin-polyfill-node": "^0.12.0",
+        "setimmediate": "^1.0.5",
+        "tslib": "^2.5.0",
+        "typescript": "^4.9.5",
+        "util": "^0.12.5",
+        "vite": "^4.1.2",
+        "vite-plugin-node-polyfills": "^0.7.0",
+        "vite-plugin-node-stdlib-browser": "^0.1.1"
+    }
+}
