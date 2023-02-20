@@ -20,7 +20,7 @@ let swarm;
 let proxy: HandshakeProxy;
 
 function resolveWithPeers(resolve: Function) {
-  if (proxy.node.peers.list.size === 0) {
+  if (!proxy.node.pool.peers.head()) {
     proxy.node.pool.once("peer", () => {
       resolve(null);
     });
@@ -55,7 +55,7 @@ async function handleReady(aq: ActiveQuery) {
 }
 
 async function handleQuery(aq: ActiveQuery) {
-  if (!proxy.node.chain.synced || proxy.node.peers.list.size === 0) {
+  if (!proxy.node.chain.synced || !proxy.node.pool.peers.head()) {
     aq.reject("not ready");
     return;
   }
