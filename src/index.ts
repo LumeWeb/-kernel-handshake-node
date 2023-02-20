@@ -19,6 +19,17 @@ addHandler("query", handleQuery);
 let swarm;
 let proxy: HandshakeProxy;
 
+function resolveWithPeers(resolve: Function) {
+  if (proxy.node.peers.list.size === 0) {
+    proxy.node.pool.once("peer", () => {
+      resolve(null);
+    });
+    return;
+  }
+
+  return resolve(null);
+}
+
 async function handlePresentSeed(aq: ActiveQuery) {
   swarm = createClient();
   proxy = new HandshakeProxy({ swarm, listen: true });
@@ -34,19 +45,17 @@ async function handleReady(aq: ActiveQuery) {
 
   await new Promise((resolve): void => {
     if (proxy.node.chain.synced) {
-      return resolve(null);
+      return resolveWithPeers(resolve);
     }
 
-    proxy.node.pool.on("full", () => {
-      resolve(null);
-    });
+    proxy.node.pool.on("full", resolveWithPeers);
   });
 
   aq.respond();
 }
 
 async function handleQuery(aq: ActiveQuery) {
-  if (!proxy.node.chain.synced) {
+  if (!proxy.node.chain.synced || proxy.node.peers.list.size === 0) {
     aq.reject("not ready");
     return;
   }
