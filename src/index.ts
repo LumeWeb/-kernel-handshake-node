@@ -21,9 +21,29 @@ let proxy: HandshakeProxy;
 
 function resolveWithPeers(resolve: Function) {
   if (!proxy.node.pool.peers.head()) {
-    proxy.node.pool.once("peer", () => {
-      resolve(null);
+    proxy.node.pool.on("peer", () => {
+      resolveWithPeers(resolve);
     });
+    return;
+  }
+
+  let syncable = false;
+
+  for (let peer = proxy.node.pool.peers.head(); peer; peer = peer.next) {
+    if (proxy.node.pool.isSyncable(peer)) {
+      syncable = true;
+      break;
+    }
+  }
+
+  if (!syncable) {
+    for (let peer = proxy.node.pool.peers.head(); peer; peer = peer.next) {
+      const listener = () => {
+        peer.off("open", listener);
+        resolve();
+      };
+      peer.on("open", listener);
+    }
     return;
   }
 
