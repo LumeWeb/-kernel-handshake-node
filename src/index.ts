@@ -48,7 +48,9 @@ async function handleReady(aq: ActiveQuery) {
       return resolveWithPeers(resolve);
     }
 
-    proxy.node.pool.on("full", resolveWithPeers);
+    proxy.node.pool.once("full", () => {
+      resolveWithPeers(resolve);
+    });
   });
 
   aq.respond();
