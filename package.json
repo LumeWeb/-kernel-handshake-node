@@ -15,7 +15,7 @@
     "type": "module",
     "dependencies": {
         "@lumeweb/hypercore-proxy-handshake": "git+https://git.lumeweb.com/LumeWeb/hypercore-proxy-handshake.git",
-        "@lumeweb/kernel-swarm-client": "link:/home/derrick/Projects/lume/kernel/kernel-swarm-client",
+        "@lumeweb/kernel-swarm-client": "git+https://git.lumeweb.com/LumeWeb/kernel-swarm-client.git",
         "libkmodule": "^0.2.53"
     },
     "devDependencies": {
