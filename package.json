@@ -50,5 +50,10 @@
         "vite": "^4.2.1",
         "vite-plugin-node-polyfills": "^0.7.0",
         "vite-plugin-node-stdlib-browser": "^0.1.1"
+    },
+    "pnpm": {
+        "overrides": {
+            "protomux": "git+https://git.lumeweb.com/LumeWeb/kernel-protomux-client.git"
+        }
     }
 }
