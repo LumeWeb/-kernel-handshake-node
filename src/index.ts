@@ -1,7 +1,16 @@
 import type { ActiveQuery } from "libkmodule";
 import { addHandler, handleMessage } from "libkmodule";
 import { createClient } from "@lumeweb/kernel-swarm-client";
-import HandshakeProxy from "@lumeweb/hypercore-proxy-handshake";
+import {
+  createServer,
+  DummySocket,
+  MultiSocketProxy,
+} from "@lumeweb/libhyperproxy";
+// @ts-ignore
+import { SPVNode } from "hsd/lib/node";
+import defer from "p-defer";
+import dns from "@i2labs/dns";
+import assert from "assert";
 
 const PROTOCOL = "lumeweb.proxy.handshake";
 
@@ -17,11 +26,12 @@ addHandler("ready", handleReady);
 addHandler("query", handleQuery);
 
 let swarm;
-let proxy: HandshakeProxy;
+let proxy: MultiSocketProxy;
+let node: SPVNode;
 
 function resolveWithPeers(resolve: Function) {
-  if (!proxy.node.pool.peers.head()) {
-    proxy.node.pool.on("peer", () => {
+  if (!node.pool.peers.head()) {
+    node.pool.on("peer", () => {
       resolveWithPeers(resolve);
     });
     return;
@@ -29,15 +39,15 @@ function resolveWithPeers(resolve: Function) {
 
   let syncable = false;
 
-  for (let peer = proxy.node.pool.peers.head(); peer; peer = peer.next) {
-    if (proxy.node.pool.isSyncable(peer)) {
+  for (let peer = node.pool.peers.head(); peer; peer = peer.next) {
+    if (node.pool.isSyncable(peer)) {
       syncable = true;
       break;
     }
   }
 
   if (!syncable) {
-    for (let peer = proxy.node.pool.peers.head(); peer; peer = peer.next) {
+    for (let peer = node.pool.peers.head(); peer; peer = peer.next) {
       const listener = () => {
         peer.off("open", listener);
         resolve();
@@ -52,10 +62,100 @@ function resolveWithPeers(resolve: Function) {
 
 async function handlePresentSeed(aq: ActiveQuery) {
   swarm = createClient();
-  proxy = new HandshakeProxy({ swarm, listen: true });
+
+  const peerConnected = defer();
+  node = new SPVNode({
+    config: false,
+    argv: false,
+    env: false,
+    noDns: true,
+    memory: false,
+    logFile: false,
+    logConsole: true,
+    logLevel: "info",
+    workers: true,
+    network: "main",
+    createServer,
+    createSocket: (port: number, host: string) => {
+      const socket = proxy.createSocket({
+        host,
+        port,
+      }) as unknown as DummySocket;
+      socket.connect();
+
+      return socket;
+    },
+  });
+
+  node.pool.hosts.resolve = async (host: any, family?: any) => {
+    if (family == null) family = null;
+
+    assert(family === null || family === 4 || family === 6);
+
+    const stub = new dns.promises.Resolver();
+
+    stub.setServers([
+      // Cloudflare
+      "1.1.1.1",
+      // Google
+      "8.8.8.8",
+      "8.8.4.4",
+      // OpenDNS
+      "208.67.222.222",
+      "208.67.220.220",
+      "208.67.222.220",
+      "208.67.220.222",
+    ]);
+
+    const out = [];
+    const types = [];
+
+    if (family == null || family === 4) types.push("A");
+
+    if (family == null || family === 6) types.push("AAAA");
+
+    for (const type of types) {
+      let addrs;
+
+      try {
+        addrs = await stub.resolve(host, type as any);
+      } catch (e) {
+        continue;
+      }
+
+      // @ts-ignore
+      out.push(...addrs);
+    }
+
+    if (out.length === 0) throw new Error("No DNS results.");
+
+    return out;
+  };
+
+  if (node?.http?.http?.listen) {
+    node.http.http.listen = (port: number, host: string, cb: Function) => cb();
+  }
+
+  proxy = new MultiSocketProxy({
+    protocol: PROTOCOL,
+    swarm,
+    server: false,
+    autostart: true,
+    listen: true,
+  });
+
+  proxy.on("peerChannelOpen", () => {
+    peerConnected.resolve();
+  });
 
   swarm.join(PROTOCOL);
   await swarm.start();
+
+  await peerConnected.promise;
+
+  await node.open();
+  await node.connect();
+  await node.startSync();
 
   moduleLoadedResolve();
 }
@@ -64,11 +164,11 @@ async function handleReady(aq: ActiveQuery) {
   await moduleLoaded;
 
   await new Promise((resolve): void => {
-    if (proxy.node.chain.synced) {
+    if (node.chain.synced) {
       return resolveWithPeers(resolve);
     }
 
-    proxy.node.pool.once("full", () => {
+    node.pool.once("full", () => {
       resolveWithPeers(resolve);
     });
   });
@@ -77,13 +177,13 @@ async function handleReady(aq: ActiveQuery) {
 }
 
 async function handleQuery(aq: ActiveQuery) {
-  if (!proxy.node.chain.synced || !proxy.node.pool.peers.head()) {
+  if (!node.chain.synced || !node.pool.peers.head()) {
     aq.reject("not ready");
     return;
   }
 
   try {
-    aq.respond(await proxy.node.rpc.call(aq.callerInput));
+    aq.respond(await node.rpc.call(aq.callerInput));
   } catch (e) {
     aq.reject((e as Error).message);
   }

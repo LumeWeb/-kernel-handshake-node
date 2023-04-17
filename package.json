@@ -14,13 +14,16 @@
     },
     "type": "module",
     "dependencies": {
-        "@lumeweb/hypercore-proxy-handshake": "git+https://git.lumeweb.com/LumeWeb/hypercore-proxy-handshake.git",
         "@lumeweb/kernel-swarm-client": "git+https://git.lumeweb.com/LumeWeb/kernel-swarm-client.git",
-        "libkmodule": "^0.2.53"
+        "@lumeweb/libhyperproxy": "git+https://git.lumeweb.com/LumeWeb/libhyperproxy.git",
+        "hsd": "github:handshake-org/hsd",
+        "libkmodule": "^0.2.53",
+        "p-defer": "^4.0.0"
     },
     "devDependencies": {
+        "@i2labs/dns": "^1.0.1",
         "@rollup/plugin-alias": "^4.0.4",
-        "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-commonjs": "^24.1.0",
         "@rollup/plugin-inject": "^5.0.3",
         "@rollup/plugin-json": "^6.0.0",
         "@rollup/plugin-node-resolve": "^15.0.2",
@@ -32,14 +35,14 @@
         "@types/read": "^0.0.29",
         "@types/streamx": "^2.9.1",
         "cli-progress": "^3.12.0",
-        "esbuild": "^0.17.15",
+        "esbuild": "^0.17.17",
         "eventemitter3": "^5.0.0",
         "node-stdlib-browser": "^1.2.0",
         "os-browserify": "^0.3.0",
         "path-browserify": "^1.0.1",
         "prettier": "^2.8.7",
-        "read": "^2.0.0",
-        "rollup": "^3.20.2",
+        "read": "^2.1.0",
+        "rollup": "^3.20.3",
         "rollup-plugin-polyfill": "^4.0.0",
         "rollup-plugin-polyfill-inject": "^1.0.4",
         "rollup-plugin-polyfill-node": "^0.12.0",
@@ -54,6 +57,9 @@
     "pnpm": {
         "overrides": {
             "protomux": "git+https://git.lumeweb.com/LumeWeb/kernel-protomux-client.git"
+        },
+        "patchedDependencies": {
+            "b4a@1.6.3": "patches/b4a@1.6.3.patch"
         }
     }
 }
