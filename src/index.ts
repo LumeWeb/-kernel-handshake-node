@@ -1,5 +1,5 @@
-import type { ActiveQuery } from "libkmodule";
-import { addHandler, handleMessage } from "libkmodule";
+import type { ActiveQuery } from "@lumeweb/libkernel/module";
+import { addHandler, handleMessage } from "@lumeweb/libkernel/module";
 import { createClient } from "@lumeweb/kernel-swarm-client";
 import {
   createServer,
@@ -21,7 +21,7 @@ let moduleLoaded: Promise<void> = new Promise((resolve) => {
   moduleLoadedResolve = resolve;
 });
 
-addHandler("presentSeed", handlePresentSeed);
+addHandler("presentKey", handlePresentKey);
 addHandler("ready", handleReady);
 addHandler("query", handleQuery);
 
@@ -60,7 +60,7 @@ function resolveWithPeers(resolve: Function) {
   return resolve(null);
 }
 
-async function handlePresentSeed(aq: ActiveQuery) {
+async function handlePresentKey(aq: ActiveQuery) {
   swarm = createClient();
 
   const peerConnected = defer();
@@ -107,8 +107,8 @@ async function handlePresentSeed(aq: ActiveQuery) {
       "208.67.220.222",
     ]);
 
-    const out = [];
-    const types = [];
+    const out: string[] = [];
+    const types: string[] = [];
 
     if (family == null || family === 4) types.push("A");
 
