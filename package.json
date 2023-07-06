@@ -1,6 +1,10 @@
 {
     "name": "@lumeweb/kernel-handshake-node",
     "types": "module",
+    "repository": {
+        "type": "git",
+        "url": "gitea@git.lumeweb.com:LumeWeb/kernel-handshake-node.git"
+    },
     "author": {
         "name": "Hammer Technologies LLC",
         "email": "contact@lumeweb.com"
