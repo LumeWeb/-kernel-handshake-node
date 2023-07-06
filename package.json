@@ -10,9 +10,8 @@
         "email": "contact@lumeweb.com"
     },
     "type": "module",
-    "version": "",
+    "version": "0.0.2-develop.1",
     "readme": "ERROR: No README data found!",
-    "_id": "@lumeweb/kernel-handshake-node@",
     "scripts": {
         "prepare": "presetter bootstrap",
         "build": "shx echo 'export default undefined;' > nop.js; run build",
