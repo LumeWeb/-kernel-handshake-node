@@ -148,7 +148,7 @@ async function handlePresentKey(aq: ActiveQuery) {
     peerConnected.resolve();
   });
 
-  swarm.join(PROTOCOL);
+  await swarm.join(PROTOCOL);
   await swarm.start();
 
   await peerConnected.promise;
