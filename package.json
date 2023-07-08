@@ -27,9 +27,9 @@
     },
     "dependencies": {
         "@i2labs/dns": "^1.0.1",
-        "@lumeweb/kernel-swarm-client": "^0.0.2-develop.6",
+        "@lumeweb/kernel-swarm-client": "^0.0.2-develop.8",
         "@lumeweb/libhyperproxy": "^0.0.2-develop.1",
-        "@lumeweb/libkernel": "^0.1.0-develop.14",
+        "@lumeweb/libkernel": "^0.1.0-develop.15",
         "assert": "^2.0.0",
         "hsd": "^5.0.1",
         "p-defer": "^4.0.0"
