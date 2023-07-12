@@ -19,7 +19,7 @@
         "postinstall": "patch-package"
     },
     "devDependencies": {
-        "@lumeweb/presetter-kernel-module-preset": "^0.1.0-develop.34",
+        "@lumeweb/presetter-kernel-module-preset": "^0.1.0-develop.43",
         "patch-package": "^7.0.0",
         "presetter": "*",
         "timers-browserify": "^2.0.12",
@@ -27,9 +27,9 @@
     },
     "dependencies": {
         "@i2labs/dns": "^1.0.1",
-        "@lumeweb/kernel-swarm-client": "^0.0.2-develop.8",
-        "@lumeweb/libhyperproxy": "^0.0.2-develop.1",
-        "@lumeweb/libkernel": "^0.1.0-develop.15",
+        "@lumeweb/kernel-swarm-client": "^0.0.2-develop.9",
+        "@lumeweb/libhyperproxy": "^0.0.2-develop.2",
+        "@lumeweb/libkernel": "^0.1.0-develop.16",
         "assert": "^2.0.0",
         "hsd": "^5.0.1",
         "p-defer": "^4.0.0"
