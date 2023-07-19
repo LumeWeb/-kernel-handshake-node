@@ -1,6 +1,7 @@
 import type { ActiveQuery } from "@lumeweb/libkernel/module";
 import { addHandler, handleMessage } from "@lumeweb/libkernel/module";
-import { createClient } from "@lumeweb/kernel-swarm-client";
+import { createClient as createSwarmClient } from "@lumeweb/kernel-swarm-client";
+import { createClient as createNetworkRegistryClient } from "@lumeweb/kernel-network-registry-client";
 import {
   createServer,
   DummySocket,
@@ -13,6 +14,7 @@ import dns from "@i2labs/dns";
 import assert from "assert";
 
 const PROTOCOL = "lumeweb.proxy.handshake";
+const TYPES = ["blockchain"];
 
 onmessage = handleMessage;
 
@@ -22,12 +24,15 @@ let moduleLoaded: Promise<void> = new Promise((resolve) => {
 });
 
 addHandler("presentKey", handlePresentKey);
+addHandler("register", handleRegister);
 addHandler("ready", handleReady);
 addHandler("query", handleQuery);
 
 let swarm;
 let proxy: MultiSocketProxy;
 let node: SPVNode;
+
+const networkRegistry = createNetworkRegistryClient();
 
 function resolveWithPeers(resolve: Function) {
   if (!node.pool.peers.head()) {
@@ -61,7 +66,7 @@ function resolveWithPeers(resolve: Function) {
 }
 
 async function handlePresentKey(aq: ActiveQuery) {
-  swarm = createClient();
+  swarm = createSwarmClient();
 
   const peerConnected = defer();
   node = new SPVNode({
@@ -187,4 +192,10 @@ async function handleQuery(aq: ActiveQuery) {
   } catch (e) {
     aq.reject((e as Error).message);
   }
+}
+
+async function handleRegister(aq: ActiveQuery) {
+  await networkRegistry.registerNetwork(TYPES);
+
+  aq.respond();
 }
