@@ -11,7 +11,7 @@
             "dependencies": {
                 "@i2labs/dns": "^1.0.1",
                 "@lumeweb/kernel-network-registry-client": "^0.1.0-develop.4",
-                "@lumeweb/kernel-swarm-client": "^0.0.2-develop.11",
+                "@lumeweb/kernel-swarm-client": "^0.0.2-develop.13",
                 "@lumeweb/libhyperproxy": "^0.0.2-develop.2",
                 "@lumeweb/libkernel": "^0.1.0-develop.20",
                 "assert": "^2.0.0",
@@ -1703,9 +1703,9 @@
             }
         },
         "node_modules/@lumeweb/kernel-swarm-client": {
-            "version": "0.0.2-develop.11",
-            "resolved": "https://registry.npmjs.org/@lumeweb/kernel-swarm-client/-/kernel-swarm-client-0.0.2-develop.11.tgz",
-            "integrity": "sha512-AJuIvMWI4VkgtjJ4cGG2OEgIeRZuQuLmD0c2a3FPNf2GoGUF3wGrPQqWZzVhoDnKgm0KT25MapN6q8HcF1/Btw==",
+            "version": "0.0.2-develop.13",
+            "resolved": "https://registry.npmjs.org/@lumeweb/kernel-swarm-client/-/kernel-swarm-client-0.0.2-develop.13.tgz",
+            "integrity": "sha512-Xk9JWie6N5JFqlMhCF63QSH7qwfW3qblCjqmT/84TexcTFP0eyRwThLSnq0iixVVK3EdBbbNeWn7imA0UgtFxw==",
             "dependencies": {
                 "@lumeweb/libkernel": "^0.1.0-develop.9",
                 "async-mutex": "^0.4.0",
