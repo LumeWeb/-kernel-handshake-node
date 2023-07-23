@@ -25,6 +25,7 @@ let moduleLoaded: Promise<void> = new Promise((resolve) => {
 
 addHandler("presentKey", handlePresentKey);
 addHandler("register", handleRegister);
+addHandler("status", handleStatus, { receiveUpdates: true });
 addHandler("ready", handleReady);
 addHandler("query", handleQuery);
 
@@ -198,4 +199,39 @@ async function handleRegister(aq: ActiveQuery) {
   await networkRegistry.registerNetwork(TYPES);
 
   aq.respond();
+}
+
+async function handleStatus(aq: ActiveQuery) {
+  let chainProgress = node.chain.getProgress();
+  let chainPeers = node.pool.peers.size();
+
+  const chainProgressListener = node.chain.on("tip", () => {
+    chainProgress = node.chain.getProgress();
+    sendUpdate();
+  });
+
+  function peersListener() {
+    chainPeers = node.pool.peers.size();
+    sendUpdate();
+  }
+
+  node.pool.on("peer", peersListener);
+  node.pool.on("peer close", peersListener);
+
+  function sendUpdate() {
+    aq.sendUpdate({
+      sync: chainProgress * 100,
+      peers: chainPeers,
+      ready: node.chain.synced,
+    });
+  }
+
+  aq.setReceiveUpdate?.(() => {
+    node.chain.off("tip", chainProgressListener);
+    node.pool.off("peer", peersListener);
+    node.pool.off("peer close", peersListener);
+    aq.respond();
+  });
+
+  sendUpdate();
 }
