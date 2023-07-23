@@ -27,7 +27,7 @@
     },
     "dependencies": {
         "@i2labs/dns": "^1.0.1",
-        "@lumeweb/kernel-network-registry-client": "^0.1.0-develop.4",
+        "@lumeweb/kernel-network-registry-client": "^0.1.0-develop.5",
         "@lumeweb/kernel-protomux-client": "^0.0.2-develop.12",
         "@lumeweb/kernel-swarm-client": "^0.1.0-develop.2",
         "@lumeweb/libhyperproxy": "^0.0.2-develop.2",

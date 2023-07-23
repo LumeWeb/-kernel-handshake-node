@@ -10,7 +10,7 @@
             "hasInstallScript": true,
             "dependencies": {
                 "@i2labs/dns": "^1.0.1",
-                "@lumeweb/kernel-network-registry-client": "^0.1.0-develop.4",
+                "@lumeweb/kernel-network-registry-client": "^0.1.0-develop.5",
                 "@lumeweb/kernel-protomux-client": "^0.0.2-develop.12",
                 "@lumeweb/kernel-swarm-client": "^0.1.0-develop.2",
                 "@lumeweb/libhyperproxy": "^0.0.2-develop.2",
@@ -1696,9 +1696,9 @@
             }
         },
         "node_modules/@lumeweb/kernel-network-registry-client": {
-            "version": "0.1.0-develop.4",
-            "resolved": "https://registry.npmjs.org/@lumeweb/kernel-network-registry-client/-/kernel-network-registry-client-0.1.0-develop.4.tgz",
-            "integrity": "sha512-41VKVCJ71evA+uUdoVxsxLx2hP029Hdv0jmasvVBh/WuSyYiDUm47pdXa+4ct8fIwsLHLCzpFAR/CkpL2F/kog==",
+            "version": "0.1.0-develop.5",
+            "resolved": "https://registry.npmjs.org/@lumeweb/kernel-network-registry-client/-/kernel-network-registry-client-0.1.0-develop.5.tgz",
+            "integrity": "sha512-4ijBHvJKtiOrGrzJkytmNBNa0FpRy8y9w2OmzxP1yA4aCjVq5hxqKR0NSupXeBjhMNCD8Va3aM0a6I7tGFnF1w==",
             "dependencies": {
                 "@lumeweb/libkernel": "^0.1.0-develop.20"
             }
