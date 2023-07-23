@@ -6,7 +6,8 @@
         "vite": {
             "resolve": {
                 "alias": {
-                    "timers": "timers-browserify"
+                    "timers": "timers-browserify",
+                    "protomux": "@lumeweb/kernel-protomux-client"
                 }
             },
             "optimize": {
