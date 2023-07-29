@@ -26,6 +26,7 @@ let moduleLoaded: Promise<void> = new Promise((resolve) => {
 addHandler("presentKey", handlePresentKey);
 addHandler("register", handleRegister);
 addHandler("status", handleStatus, { receiveUpdates: true });
+addHandler("name", handleName);
 addHandler("ready", handleReady);
 addHandler("query", handleQuery);
 
@@ -234,4 +235,8 @@ async function handleStatus(aq: ActiveQuery) {
   });
 
   sendUpdate();
+}
+
+function handleName(aq: ActiveQuery) {
+  aq.respond("Handshake");
 }
