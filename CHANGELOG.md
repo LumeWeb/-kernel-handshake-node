@@ -1,3 +1,10 @@
+# [0.1.0-develop.3](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.2...v0.1.0-develop.3) (2023-07-29)
+
+
+### Features
+
+* add name api ([e612211](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/e6122110c5e9d42773aeb57e0bfee2cee0e6febf))
+
 # [0.1.0-develop.2](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.1...v0.1.0-develop.2) (2023-07-23)
 
 # [0.1.0-develop.1](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.0.2-develop.1...v0.1.0-develop.1) (2023-07-23)
