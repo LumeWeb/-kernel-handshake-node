@@ -228,7 +228,7 @@ async function handleStatus(aq: ActiveQuery) {
   }
 
   aq.setReceiveUpdate?.(() => {
-    node.chain.off("tip", chainProgressListener);
+    node.chain.removeListener("tip", chainProgressListener);
     node.pool.off("peer", peersListener);
     node.pool.off("peer close", peersListener);
     aq.respond();
