@@ -1,0 +1,9 @@
+diff --git a/node_modules/bns/lib/internal/net.js b/node_modules/bns/lib/internal/net.js
+index 4ad5ee0..beaf186 100644
+--- a/node_modules/bns/lib/internal/net.js
++++ b/node_modules/bns/lib/internal/net.js
+@@ -646,3 +646,4 @@ function normalize(options) {
+ 
+ exports.Client = Client;
+ exports.Server = Server;
++exports.TCPSocket = TCPSocket;

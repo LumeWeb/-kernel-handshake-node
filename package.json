@@ -21,7 +21,7 @@
     "devDependencies": {
         "@lumeweb/presetter-kernel-module-preset": "^0.1.0-develop.44",
         "@types/streamx": "^2.9.1",
-        "patch-package": "^7.0.0",
+        "patch-package": "^7.0.2",
         "presetter": "*",
         "timers-browserify": "^2.0.12",
         "vite": "^4.4.0"
