@@ -12,6 +12,8 @@ import { SPVNode } from "hsd/lib/node";
 import defer from "p-defer";
 import dns from "@i2labs/dns";
 import assert from "assert";
+import { wire } from "bns";
+import TCPClient from "./dns/tcpClient.js";
 
 const PROTOCOL = "lumeweb.proxy.handshake";
 const TYPES = ["blockchain"];
@@ -29,6 +31,7 @@ addHandler("status", handleStatus, { receiveUpdates: true });
 addHandler("name", handleName);
 addHandler("ready", handleReady);
 addHandler("query", handleQuery);
+addHandler("dnsQuery", handleDnsQuery);
 
 let swarm;
 let proxy: MultiSocketProxy;
@@ -75,7 +78,6 @@ async function handlePresentKey(aq: ActiveQuery) {
     config: false,
     argv: false,
     env: false,
-    noDns: true,
     memory: false,
     logFile: false,
     logConsole: true,
@@ -143,6 +145,10 @@ async function handlePresentKey(aq: ActiveQuery) {
     node.http.http.listen = (port: number, host: string, cb: Function) => cb();
   }
 
+  node.rs.hns.forceTCP = true;
+  node.rs.hns.socket = new TCPClient({ node, swarm });
+  node.rs.hns.init();
+
   proxy = new MultiSocketProxy({
     protocol: PROTOCOL,
     swarm,
@@ -194,6 +200,33 @@ async function handleQuery(aq: ActiveQuery) {
   } catch (e) {
     aq.reject((e as Error).message);
   }
+}
+
+async function handleDnsQuery(aq: ActiveQuery) {
+  if (!node.chain.synced || !node.pool.peers.head()) {
+    aq.reject("not ready");
+    return;
+  }
+
+  if (!("fqdn" in aq.callerInput)) {
+    aq.reject("fqdn required");
+    return;
+  }
+
+  if (!("type" in aq.callerInput)) {
+    aq.reject("type required");
+    return;
+  }
+
+  const msg = new wire.Message();
+  const q = new wire.Question(aq.callerInput.fqdn, aq.callerInput.type);
+  msg.question.push(q);
+
+  const ret = await node.rs.answer(msg);
+
+  aq.respond(
+    ret.collect(aq.callerInput.fqdn, wire.stringToType(aq.callerInput.type)),
+  );
 }
 
 async function handleRegister(aq: ActiveQuery) {
