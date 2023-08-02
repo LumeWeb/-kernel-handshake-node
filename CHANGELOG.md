@@ -1,3 +1,11 @@
+# [0.1.0-develop.5](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.4...v0.1.0-develop.5) (2023-08-02)
+
+
+### Bug Fixes
+
+* add a patch for bns to export TCPSocket ([aaee3ac](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/aaee3acb929089472ca82215cda0ebb39bb00780))
+* add b4a patch ([e31973b](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/e31973be7056efcacdfa32f82f068b3075bbe5cb))
+
 # [0.1.0-develop.4](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.3...v0.1.0-develop.4) (2023-08-02)
 
 
