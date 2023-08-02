@@ -13,14 +13,16 @@
                 "@lumeweb/kernel-network-registry-client": "^0.1.0-develop.5",
                 "@lumeweb/kernel-protomux-client": "^0.0.2-develop.15",
                 "@lumeweb/kernel-swarm-client": "^0.1.0-develop.5",
-                "@lumeweb/libhyperproxy": "^0.0.2-develop.2",
+                "@lumeweb/libhyperproxy": "^0.0.2-develop.4",
                 "@lumeweb/libkernel": "^0.1.0-develop.31",
                 "assert": "^2.0.0",
                 "hsd": "^5.0.1",
-                "p-defer": "^4.0.0"
+                "p-defer": "^4.0.0",
+                "streamx": "^2.15.0"
             },
             "devDependencies": {
                 "@lumeweb/presetter-kernel-module-preset": "^0.1.0-develop.44",
+                "@types/streamx": "^2.9.1",
                 "patch-package": "^7.0.0",
                 "presetter": "*",
                 "timers-browserify": "^2.0.12",
@@ -1726,9 +1728,9 @@
             }
         },
         "node_modules/@lumeweb/libhyperproxy": {
-            "version": "0.0.2-develop.2",
-            "resolved": "https://registry.npmjs.org/@lumeweb/libhyperproxy/-/libhyperproxy-0.0.2-develop.2.tgz",
-            "integrity": "sha512-3OjOzvxddYJn4i9XYgSHn0PWqm5z0eYW54cMOytuDyeDVs7MYc2EZh2XavUbWLDbtb8hN+lmrSoYJtG8/H7pOg==",
+            "version": "0.0.2-develop.4",
+            "resolved": "https://registry.npmjs.org/@lumeweb/libhyperproxy/-/libhyperproxy-0.0.2-develop.4.tgz",
+            "integrity": "sha512-OW8uuIAwnjlM6yCSlXdgRDewOMsvjvMfrM4gsrMIJiz2FfqyO3lH2S/pQM6ThalP5g09tMV9w3Tlp39oKYszZw==",
             "dependencies": {
                 "binconv": "^0.2.0",
                 "compact-encoding": "^2.12.0",
@@ -3343,8 +3345,7 @@
         "node_modules/@types/node": {
             "version": "20.3.3",
             "resolved": "https://registry.npmjs.org/@types/node/-/node-20.3.3.tgz",
-            "integrity": "sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw==",
-            "peer": true
+            "integrity": "sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw=="
         },
         "node_modules/@types/normalize-package-data": {
             "version": "2.4.1",
@@ -3368,6 +3369,15 @@
             "resolved": "https://registry.npmjs.org/@types/stack-utils/-/stack-utils-2.0.1.tgz",
             "integrity": "sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==",
             "peer": true
+        },
+        "node_modules/@types/streamx": {
+            "version": "2.9.1",
+            "resolved": "https://registry.npmjs.org/@types/streamx/-/streamx-2.9.1.tgz",
+            "integrity": "sha512-9bywzhouyedmci7WCIPFwJ8zASDnxt2gaVUy52X0p0Tt085IJSAEP0L6j4SSNeDMSLzpYu6cPz0GrJZ7kPJ6Bg==",
+            "dev": true,
+            "dependencies": {
+                "@types/node": "*"
+            }
         },
         "node_modules/@types/strip-bom": {
             "version": "3.0.0",
