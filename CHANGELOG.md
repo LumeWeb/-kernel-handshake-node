@@ -1,3 +1,15 @@
+# [0.1.0-develop.4](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.3...v0.1.0-develop.4) (2023-08-02)
+
+
+### Bug Fixes
+
+* use removeListener ([2eef509](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/2eef5099c8277624e88b9a310aed14adf78e4b3f))
+
+
+### Features
+
+* add dns query api that uses mock sockets and a dedicated hyper proxy for DNS (port 53) requests ([d675a44](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/d675a44b4e77a1c0aa2210f5bea3d538476f63ac))
+
 # [0.1.0-develop.3](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.2...v0.1.0-develop.3) (2023-07-29)
 
 
