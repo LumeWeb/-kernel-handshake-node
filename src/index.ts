@@ -224,6 +224,11 @@ async function handleDnsQuery(aq: ActiveQuery) {
 
   const ret = await node.rs.answer(msg);
 
+  if (!ret.ad) {
+    aq.respond([]);
+    return;
+  }
+
   aq.respond(
     ret.collect(aq.callerInput.fqdn, wire.stringToType(aq.callerInput.type)),
   );
