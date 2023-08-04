@@ -145,9 +145,14 @@ async function handlePresentKey(aq: ActiveQuery) {
     node.http.http.listen = (port: number, host: string, cb: Function) => cb();
   }
 
+  const tcpClient = new TCPClient({ node, swarm });
+
   node.rs.hns.forceTCP = true;
-  node.rs.hns.socket = new TCPClient({ node, swarm });
+  node.rs.hns.socket = tcpClient;
+  node.ns.icann.forceTCP = true;
+  node.ns.icann.socket = tcpClient;
   node.rs.hns.init();
+  node.ns.icann.init();
 
   proxy = new MultiSocketProxy({
     protocol: PROTOCOL,
