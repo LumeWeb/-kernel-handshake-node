@@ -225,7 +225,11 @@ async function handleDnsQuery(aq: ActiveQuery) {
 
   const msg = new wire.Message();
   const q = new wire.Question(aq.callerInput.fqdn, aq.callerInput.type);
+
   msg.question.push(q);
+
+  msg.rd = true;
+  msg.ad = true;
 
   const ret = await node.rs.answer(msg);
 
