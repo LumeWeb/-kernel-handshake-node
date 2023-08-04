@@ -1,3 +1,10 @@
+# [0.1.0-develop.6](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.5...v0.1.0-develop.6) (2023-08-03)
+
+
+### Bug Fixes
+
+* if the ad flag is not set (no dnssec) return an empty result for security ([cd571db](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/cd571dbceb440be25e697c05d1186ed3675163a8))
+
 # [0.1.0-develop.5](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.4...v0.1.0-develop.5) (2023-08-02)
 
 
