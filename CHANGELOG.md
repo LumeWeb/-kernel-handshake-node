@@ -1,3 +1,11 @@
+# [0.1.0-develop.7](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.6...v0.1.0-develop.7) (2023-08-04)
+
+
+### Bug Fixes
+
+* we need flag ad and rd on the dns query. rd is to request recursive lookup and ad is to ensure we only get DNSSEC responses ([67025f0](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/67025f0f687fe566a3751e52d3cd11441dcd93a9))
+* we need to override the tcp client on the NS icann resolver to pipe connections properly ([1a80319](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/1a803193e6b6b18b1433360c2e26118ef8011094))
+
 # [0.1.0-develop.6](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.5...v0.1.0-develop.6) (2023-08-03)
 
 
