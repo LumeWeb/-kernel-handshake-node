@@ -10,7 +10,7 @@
         "email": "contact@lumeweb.com"
     },
     "type": "module",
-    "version": "0.1.0-develop.8",
+    "version": "0.1.0-develop.9",
     "readme": "ERROR: No README data found!",
     "scripts": {
         "prepare": "presetter bootstrap",
