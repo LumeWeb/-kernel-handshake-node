@@ -34,7 +34,7 @@
         "@lumeweb/libhyperproxy": "^0.0.2-develop.4",
         "@lumeweb/libkernel": "^0.1.0-develop.39",
         "assert": "^2.0.0",
-        "hsd": "^5.0.1",
+        "hsd": "^6.1.0",
         "p-defer": "^4.0.0",
         "streamx": "^2.15.0"
     }

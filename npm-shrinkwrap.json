@@ -16,7 +16,7 @@
                 "@lumeweb/libhyperproxy": "^0.0.2-develop.4",
                 "@lumeweb/libkernel": "^0.1.0-develop.39",
                 "assert": "^2.0.0",
-                "hsd": "^5.0.1",
+                "hsd": "^6.1.0",
                 "p-defer": "^4.0.0",
                 "streamx": "^2.15.0"
             },
@@ -4127,14 +4127,14 @@
             ]
         },
         "node_modules/bcfg": {
-            "version": "0.1.8",
-            "resolved": "https://registry.npmjs.org/bcfg/-/bcfg-0.1.8.tgz",
-            "integrity": "sha512-1zHJM1/sztv9ldutWyJDZSRYQJEuRBTIzLWZ2J5ncWoWI2T6b4/hahhvQmnzucfeleU5Mx5+bcwCsF2wcWt2vA==",
+            "version": "0.2.2",
+            "resolved": "https://registry.npmjs.org/bcfg/-/bcfg-0.2.2.tgz",
+            "integrity": "sha512-xa7hYK8ZgEV/Wjh+EJiKLLd+h8A0HGyhyntNMvKCeXIGepLqKUL3KYOE5zFz8EBv8sS3XruD5YPmYIjtwFOrZA==",
             "dependencies": {
-                "bsert": "~0.0.10"
+                "bsert": "~0.0.12"
             },
             "engines": {
-                "node": ">=8.0.0"
+                "node": ">=14.0.0"
             }
         },
         "node_modules/bcrypto": {
@@ -4159,13 +4159,13 @@
             }
         },
         "node_modules/bcurl": {
-            "version": "0.2.0",
-            "resolved": "https://registry.npmjs.org/bcurl/-/bcurl-0.2.0.tgz",
-            "integrity": "sha512-uBWc/w3AqjAfo6/+ODoRSoY/w/C7UaU/9AYcXjxgObTyUf3lvV5jCuAU/dSZyWysDyWBQkPzllOd7KZkwJHnwg==",
+            "version": "0.2.1",
+            "resolved": "https://registry.npmjs.org/bcurl/-/bcurl-0.2.1.tgz",
+            "integrity": "sha512-7L00pT9SQEDzRIsRn53Il5pYHkeFlIoH0SdNIAbXdqsUMnq4IteTRuSZwC2f/uUKiRE5oW40MBhW72mquO9sQg==",
             "dependencies": {
-                "brq": "~0.1.8",
-                "bsert": "~0.0.10",
-                "bsock": "~0.1.9"
+                "brq": "~0.1.10",
+                "bsert": "~0.0.12",
+                "bsock": "~0.1.10"
             },
             "engines": {
                 "node": ">=8.0.0"
@@ -4578,11 +4578,11 @@
             }
         },
         "node_modules/brq": {
-            "version": "0.1.8",
-            "resolved": "https://registry.npmjs.org/brq/-/brq-0.1.8.tgz",
-            "integrity": "sha512-6SDY1lJMKXgt5TZ6voJQMH2zV1XPWWtm203PSkx3DSg9AYNYuRfOPFSBDkNemabzgpzFW9/neR4YhTvyJml8rQ==",
+            "version": "0.1.10",
+            "resolved": "https://registry.npmjs.org/brq/-/brq-0.1.10.tgz",
+            "integrity": "sha512-iil4TtQWw9Wb2G+mEP0iHqM8Q16mHINJzR5wHTsfKZTtcOVoEGj6yX3ed7yLQ92KR4QO9KjlrlO7/Y7766i7Tw==",
             "dependencies": {
-                "bsert": "~0.0.10"
+                "bsert": "~0.0.12"
             },
             "engines": {
                 "node": ">=8.0.0"
@@ -4629,11 +4629,11 @@
             }
         },
         "node_modules/bsock": {
-            "version": "0.1.9",
-            "resolved": "https://registry.npmjs.org/bsock/-/bsock-0.1.9.tgz",
-            "integrity": "sha512-/l9Kg/c5o+n/0AqreMxh2jpzDMl1ikl4gUxT7RFNe3A3YRIyZkiREhwcjmqxiymJSRI/Qhew357xGn1SLw/xEw==",
+            "version": "0.1.10",
+            "resolved": "https://registry.npmjs.org/bsock/-/bsock-0.1.10.tgz",
+            "integrity": "sha512-zC55FuK+Xs/09UDViRiZpcTA9Ck4q74A6WgzQH9DeQDc+snOglwzt+RaXZUSvtmFAt3theb7wYxTZBoXNx0DtA==",
             "dependencies": {
-                "bsert": "~0.0.10"
+                "bsert": "~0.0.12"
             },
             "engines": {
                 "node": ">=8.0.0"
@@ -4768,12 +4768,12 @@
             }
         },
         "node_modules/bweb": {
-            "version": "0.1.12",
-            "resolved": "https://registry.npmjs.org/bweb/-/bweb-0.1.12.tgz",
-            "integrity": "sha512-ctj1FnoTF+7/dRiRYVVwY/6lV/NYQ5Gz8HS0LsyUxae7fMJGKx2geHHIcIXeZ5DolS49Xq9e4rh29aG/vAJrWw==",
+            "version": "0.2.0",
+            "resolved": "https://registry.npmjs.org/bweb/-/bweb-0.2.0.tgz",
+            "integrity": "sha512-JfpXemYqylNySwrhR7b4HZTrxnDhbOzNiIXCPBVQU6O8rTZ1wFDLFDr/7uQqkwzjyNZ4ZWTp5wP/pJY2IizfDA==",
             "dependencies": {
                 "bsert": "~0.0.10",
-                "bsock": "~0.1.8"
+                "bsock": "~0.1.9"
             },
             "bin": {
                 "bweb": "bin/bweb"
@@ -8582,36 +8582,18 @@
                 "node": ">=12"
             }
         },
-        "node_modules/hs-client": {
-            "version": "0.0.13",
-            "resolved": "https://registry.npmjs.org/hs-client/-/hs-client-0.0.13.tgz",
-            "integrity": "sha512-3Vm/4S0TDstbOW+OfdTeP2EQ4dolPNqMulTSr31RihwX8cX1DyT4il1Fc9STXXToXTsZuFro2WD/+1m0MWi5Ag==",
-            "dependencies": {
-                "bcfg": "~0.1.7",
-                "bcurl": "~0.2.0",
-                "bsert": "~0.0.10"
-            },
-            "bin": {
-                "hsd-cli": "bin/hsd-cli",
-                "hsd-rpc": "bin/hsd-rpc",
-                "hsw-cli": "bin/hsw-cli",
-                "hsw-rpc": "bin/hsw-rpc"
-            },
-            "engines": {
-                "node": ">=8.0.0"
-            }
-        },
         "node_modules/hsd": {
-            "version": "5.0.1",
-            "resolved": "https://registry.npmjs.org/hsd/-/hsd-5.0.1.tgz",
-            "integrity": "sha512-G+4iLhKHEEOHYbk/VEvkVO4oNn1rVlH8N3LdsbH+sYZQo8qJTVP5Zwtz1pMa4vWLzA3mjrFSGG3nBFYoIJHpMQ==",
+            "version": "6.1.0",
+            "resolved": "https://registry.npmjs.org/hsd/-/hsd-6.1.0.tgz",
+            "integrity": "sha512-w/eqtDhcZehzw0NdznnfEgxOIn63LBm/dLFgWmZjeRt16zZkKfwraoEdkjsKydyMyd5dHsj+GOMl7eRA7x82aQ==",
             "dependencies": {
-                "bcfg": "~0.1.7",
+                "bcfg": "~0.2.1",
                 "bcrypto": "~5.4.0",
+                "bcurl": "^0.2.0",
                 "bdb": "~1.4.0",
                 "bdns": "~0.1.5",
                 "bevent": "~0.1.5",
-                "bfile": "~0.2.2",
+                "bfile": "~0.2.3",
                 "bfilter": "~1.0.5",
                 "bheep": "~0.1.5",
                 "binet": "~0.3.7",
@@ -8620,19 +8602,18 @@
                 "blst": "~0.1.5",
                 "bmutex": "~0.1.6",
                 "bns": "~0.15.0",
-                "bsert": "~0.0.10",
+                "bsert": "~0.0.12",
                 "bsock": "~0.1.9",
                 "bsocks": "~0.2.6",
                 "btcp": "~0.1.5",
                 "buffer-map": "~0.0.7",
                 "bufio": "~1.2.0",
                 "bupnp": "~0.2.6",
-                "bval": "~0.1.6",
-                "bweb": "~0.1.11",
+                "bval": "~0.1.8",
+                "bweb": "~0.2.0",
                 "goosig": "~0.10.0",
-                "hs-client": "~0.0.13",
                 "n64": "~0.2.10",
-                "urkel": "~1.0.2"
+                "urkel": "~1.0.3"
             },
             "bin": {
                 "hs-seeder": "bin/hs-seeder",
@@ -8640,8 +8621,10 @@
                 "hsd": "bin/hsd",
                 "hsd-cli": "bin/hsd-cli",
                 "hsd-node": "bin/node",
+                "hsd-rpc": "bin/hsd-rpc",
                 "hsd-spvnode": "bin/spvnode",
-                "hsw-cli": "bin/hsw-cli"
+                "hsw-cli": "bin/hsw-cli",
+                "hsw-rpc": "bin/hsw-rpc"
             },
             "engines": {
                 "node": ">=14.0.0"
