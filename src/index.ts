@@ -253,10 +253,10 @@ async function handleStatus(aq: ActiveQuery) {
   let chainProgress = node.chain.getProgress();
   let chainPeers = node.pool.peers.size();
 
-  const chainProgressListener = node.chain.on("tip", () => {
+  const chainProgressListener = () => {
     chainProgress = node.chain.getProgress();
     sendUpdate();
-  });
+  };
 
   function peersListener() {
     chainPeers = node.pool.peers.size();
@@ -265,6 +265,7 @@ async function handleStatus(aq: ActiveQuery) {
 
   node.pool.on("peer", peersListener);
   node.pool.on("peer close", peersListener);
+  node.chain.on("tip", chainProgressListener);
 
   function sendUpdate() {
     aq.sendUpdate({
