@@ -1,3 +1,10 @@
+# [0.1.0-develop.10](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.9...v0.1.0-develop.10) (2023-09-16)
+
+
+### Bug Fixes
+
+* creating chainProgressListener event handler wrong ([e0d3a3d](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/commit/e0d3a3de8f687b560a18a5a52425547de0bed79e))
+
 # [0.1.0-develop.9](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.8...v0.1.0-develop.9) (2023-09-09)
 
 # [0.1.0-develop.8](https://git.lumeweb.com/LumeWeb/kernel-handshake-node/compare/v0.1.0-develop.7...v0.1.0-develop.8) (2023-09-02)
